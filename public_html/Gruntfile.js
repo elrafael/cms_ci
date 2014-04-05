@@ -8,20 +8,18 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+        src: 'js/scripts.js',
+        dest: 'js/scripts.min.js'
       }
-    }
+    },
     less: {
       options: {
         compress: true,
         cleancss: true,
         optimization: 2
       },
-      files: {
-        "css/admin.min.css": "less/admin.less",
-        "css/styles.min.css": "less/styles.less"
-      }
+      "css/admin.min.css": "less/admin.less",
+      "css/styles.min.css": "less/styles.less"
     }
   });
 
@@ -29,6 +27,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['uglify', 'less']);
 
 };
